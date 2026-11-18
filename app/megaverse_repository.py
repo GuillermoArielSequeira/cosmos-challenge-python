@@ -43,7 +43,7 @@ class MegaVerseRepository:
       raise ValueError("Unknown element type")
     strategy = self.strategy_mapper[element_type]
     erase_element_param ={
-       "row": erase_element_repository.row,
+      "row": erase_element_repository.row,
       "column": erase_element_repository.column,
       "candidate_id": erase_element_repository.candidate_id,
     }
