@@ -17,16 +17,9 @@ class EraseElement(InputElement):
   pass
 
 @dataclass
-class NewElementService(InputElement):
-  element = {
-  'POLYANET': 'POLYANET',
-  'RED_SOLOON': 'RED_SOLOON',
-  'BLUE_SOLOON': 'BLUE_SOLOON',
-  'PURPLE_SOLOON': 'PURPLE_SOLOON',
-  'WHITE_SOLOON': 'WHITE_SOLOON',
-  'DOWN_COMETH': 'DOWN_COMETH',
-  'UP_COMETH': 'UP_COMETH',
-  'LEFT_COMETH': 'LEFT_COMETH',
-  'RIGHT_COMETH': 'RIGHT_COMETH',
-  'SPACE': 'SPACE',
-  }
+class CreateElementRequest(InputElement):
+  element:str
+
+@dataclass
+class EraseElementRequest(InputElement):
+  element_type:int 

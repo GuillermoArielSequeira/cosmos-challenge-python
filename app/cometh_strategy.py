@@ -7,6 +7,7 @@ class ComethStrategy(BaseElementStrategy):
     print(f'create ComethStrategy element in colum {new_element.column} '
     f'and row {new_element.row} '
     f'and candidate is {new_element.candidate_id}' 
+    f'and direction is {new_element.direction}'
     )
 
   def erase(self, element: EraseElement)-> None:

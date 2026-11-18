@@ -7,6 +7,7 @@ class SoloonStrategy(BaseElementStrategy):
     print(f'create SoloonStrategy element in colum {new_element.column} '
     f'and row {new_element.row} '
     f'and candidate is {new_element.candidate_id}'
+    f'and candidate is {new_element.color}'
     )
 
   def erase(self, element: EraseElement)-> None:
