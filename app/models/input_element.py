@@ -13,7 +13,7 @@ class CreateElement(InputElement):
   direction:Optional[str] = None
 
 @dataclass
-class EraseElement(InputElement):
+class EraseElement(CreateElement):
   pass
 
 @dataclass

@@ -1,11 +1,11 @@
 from app.base_element_strategy import BaseElementStrategy
 from app.cometh_strategy import ComethStrategy
-from app.mappers.megaverse_mapper import get_correct_mapper
+from app.mappers.megaverse_mapper import get_correct_mapper, get_correct_mapper_to_delete
 from app.soloon_strategy import SoloonStrategy
 from app.polyanet_strategy import PolyanetStrategy
 from dataclasses import asdict
 
-from app.models.input_element import CreateElement, CreateElementRequest, EraseElementRequest
+from app.models.input_element import CreateElement, CreateElementRequest, EraseElement, EraseElementRequest
 
 
 class MegaVerseRepository:
@@ -37,6 +37,19 @@ class MegaVerseRepository:
     strategy.create(create_strategy_param)
 
   def erase_element(self, erase_element_repository: EraseElementRequest):
-    pass
+    elementMapper = get_correct_mapper_to_delete(erase_element_repository.element_type)
+    element_type = elementMapper.get('element_type')
+    if element_type == None:
+      return None
+    strategy = self.strategy_mapper[element_type]
+    erase_element_param ={
+       "row": erase_element_repository.row,
+      "column": erase_element_repository.column,
+      "candidate_id": erase_element_repository.candidate_id,
+      "color": elementMapper.get('color'),
+      "direction": elementMapper.get('direction')
+    }
+    create_strategy_param = EraseElement(**erase_element_param)
+    strategy.erase(create_strategy_param)
 
     

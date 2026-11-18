@@ -22,3 +22,14 @@ def get_correct_mapper(element):
       return { 'element_type': 'COMETH', 'direction': 'right'}
     case _:
       return {}
+
+def get_correct_mapper_to_delete(element):
+  match element:
+    case 0:
+      return { 'element_type': 'POLYANET'}
+    case 1:
+      return { 'element_type': 'SOLOON'}
+    case 2:
+      return { 'element_type': 'COMETH'}
+    case _:
+      return {}

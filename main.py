@@ -45,8 +45,17 @@ service = MegaVerseService(repository)
 # repository.create_element(element_1)
 # repository.create_element(element_2)
 
-service.solve_map(1,[
-    ["POLYANET", "SPACE", "SPACE"],
-    ["SPACE", "RIGHT_COMETH", "SPACE"],
-    ["SPACE", "SPACE", "PURPLE_SOLOON"]
-  ])
+# service.solve_map(1,[
+#     ["POLYANET", "SPACE", "SPACE"],
+#     ["SPACE", "RIGHT_COMETH", "SPACE"],
+#     ["SPACE", "SPACE", "PURPLE_SOLOON"]
+#   ])
+
+service.erase_map(1,{
+    "map": {
+        "content": [
+            [{"type": 0}, None],
+            [None, {"type": 1, "color": "red"}]
+        ]
+    }
+})
