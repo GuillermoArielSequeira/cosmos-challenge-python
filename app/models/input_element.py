@@ -5,7 +5,7 @@ from dataclasses import dataclass
 class InputElement:
  row:str
  column:str
- candidate_id:str 
+ candidate_id:int 
 
 @dataclass
 class CreateElement(InputElement):
@@ -13,7 +13,7 @@ class CreateElement(InputElement):
   direction:Optional[str] = None
 
 @dataclass
-class EraseElement(CreateElement):
+class EraseElement(InputElement):
   pass
 
 @dataclass

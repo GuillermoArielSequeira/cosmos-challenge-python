@@ -39,15 +39,13 @@ class MegaVerseRepository:
   def erase_element(self, erase_element_repository: EraseElementRequest):
     elementMapper = get_correct_mapper_to_delete(erase_element_repository.element_type)
     element_type = elementMapper.get('element_type')
-    if element_type == None:
-      return None
+    if element_type is None:
+      raise ValueError("Unknown element type")
     strategy = self.strategy_mapper[element_type]
     erase_element_param ={
        "row": erase_element_repository.row,
       "column": erase_element_repository.column,
       "candidate_id": erase_element_repository.candidate_id,
-      "color": elementMapper.get('color'),
-      "direction": elementMapper.get('direction')
     }
     create_strategy_param = EraseElement(**erase_element_param)
     strategy.erase(create_strategy_param)
