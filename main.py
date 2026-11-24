@@ -1,3 +1,4 @@
+from app.clients.client_api import ClientApiClient
 from app.megaverse_repository import MegaVerseRepository
 from app.megaverse_service import MegaVerseService
 from app.polyanet_strategy import PolyanetStrategy
@@ -51,11 +52,15 @@ service = MegaVerseService(repository)
 #     ["SPACE", "SPACE", "PURPLE_SOLOON"]
 #   ])
 
-service.erase_map(1,{
-    "map": {
-        "content": [
-            [{"type": 0}, None],
-            [None, {"type": 1, "color": "red"}]
-        ]
-    }
-})
+# service.erase_map(1,{
+#     "map": {
+#         "content": [
+#             [{"type": 0}, None],
+#             [None, {"type": 1, "color": "red"}]
+#         ]
+#     }
+# })
+
+client = ClientApiClient()
+
+print(client.create_polyanet(1,"1","1"))
